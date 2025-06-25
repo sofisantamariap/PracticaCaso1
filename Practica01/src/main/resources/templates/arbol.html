@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Árboles</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+  <h2>Lista de Árboles</h2>
+  <a th:href="@{/arbol/nuevo}" class="btn btn-primary mb-3">Agregar Árbol</a>
+  
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Codigo ID:</th>
+        <th>Nombre del árbol:</th>
+        <th>Tipo de Flor:</th>
+        <th>Dureza:</th>
+        <th>Altura:</th>
+        <th>Imagen</th>
+        <th>Acciones:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="arbol : ${arboles}">
+        <td th:text="${arbol.idArbol}"></td>
+        <td th:text="${arbol.nombreComun}"></td>
+        <td th:text="${arbol.tipoFlor}"></td>
+        <td th:text="${arbol.dureza}"></td>
+        <td th:text="${arbol.alturaPromedio} + ' m'"></td>
+        <td>
+          <img th:src="${arbol.rutaImagen}" alt="imagen árbol" class="img-thumbnail" style="max-width: 100px;">
+        </td>
+        <td>
+          <a th:href="@{'/arbol/editar/' + ${arbol.idArbol}}" class="btn btn-sm btn-warning">Editar</a>
+          <a th:href="@{'/arbol/eliminar/' + ${arbol.idArbol}}" class="btn btn-sm btn-danger">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

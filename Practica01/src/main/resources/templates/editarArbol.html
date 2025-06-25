@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Árbol</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Editar Árbol</h1>
+        <form th:action="@{/arboles/actualizar/{id}(id=${arbol.id})}" th:object="${arbol}" method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="nombreComun" class="form-label">Nombre Común</label>
+                <input type="text" id="nombreComun" name="nombreComun" class="form-control" th:value="*{nombreComun}" required>
+            </div>
+            <div class="mb-3">
+                <label for="tipoFlor" class="form-label">Tipo de Flor</label>
+                <input type="text" id="tipoFlor" name="tipoFlor" class="form-control" th:value="*{tipoFlor}" required>
+            </div>
+            <div class="mb-3">
+                <label for="durezaMadera" class="form-label">Dureza de la Madera</label>
+                <input type="text" id="durezaMadera" name="durezaMadera" class="form-control" th:value="*{durezaMadera}" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea id="descripcion" name="descripcion" class="form-control" rows="3" th:text="*{descripcion}" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="rutaImagen" class="form-label">Ruta de Imagen</label>
+                <input type="text" id="rutaImagen" name="rutaImagen" class="form-control" th:value="*{rutaImagen}">
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a href="/arboles" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
