@@ -6,6 +6,7 @@ package Practica01.Web.repository;
 
 import Practica01.Web.models.Arbol;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *

@@ -46,7 +46,7 @@ public class arbolController {
 
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Long id, Model model) {
-    Arbol arbol = ArbolRepository.findById(id).orElseThrow();
+    Arbol arbol = arbolRepository.findById(id).orElseThrow();
         model.addAttribute("arbol", arbol);
         return "arbol/editar";
     }

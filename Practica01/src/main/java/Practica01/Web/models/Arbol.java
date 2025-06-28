@@ -11,8 +11,6 @@ import jakarta.persistence.Id;
 
 
 @Entity
-
-
 /**
  *
  * @author sofisantamaria
